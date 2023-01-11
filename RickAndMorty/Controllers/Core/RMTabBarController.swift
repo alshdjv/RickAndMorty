@@ -7,14 +7,17 @@
 
 import UIKit
 
+/// Controller to house tabs and root tab controllers
 final class RMTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpTabs()
     }
     
     private func setUpTabs() {
+        
         let charactersVC = RMCharacterViewController()
         let locationsVC = RMLocationViewController()
         let episodesVC = RMEpisodeViewController()
