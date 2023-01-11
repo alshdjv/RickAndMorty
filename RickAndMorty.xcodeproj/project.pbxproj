@@ -22,6 +22,7 @@
 		633FF8C3296EE746006EE295 /* RMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633FF8C2296EE745006EE295 /* RMService.swift */; };
 		633FF8C5296EE75B006EE295 /* RMRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633FF8C4296EE75B006EE295 /* RMRequest.swift */; };
 		633FF8C7296EE7D1006EE295 /* RMEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633FF8C6296EE7D1006EE295 /* RMEndpoint.swift */; };
+		634F9E8F296F16AD00A6387D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 634F9E8E296F16AD00A6387D /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				634F9E8F296F16AD00A6387D /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,8 +113,8 @@
 		633FF8AE296EDD03006EE295 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				633FF8B3296EDDF0006EE295 /* RMLocation.swift */,
 				633FF8B5296EDDF6006EE295 /* RMCharacter.swift */,
+				633FF8B3296EDDF0006EE295 /* RMLocation.swift */,
 				633FF8B7296EDE0A006EE295 /* RMEpisode.swift */,
 			);
 			path = Models;
@@ -182,6 +184,9 @@
 			dependencies = (
 			);
 			name = RickAndMorty;
+			packageProductDependencies = (
+				634F9E8E296F16AD00A6387D /* SnapKit */,
+			);
 			productName = RickAndMorty;
 			productReference = 633FF894296ED9B9006EE295 /* RickAndMorty.app */;
 			productType = "com.apple.product-type.application";
@@ -210,6 +215,9 @@
 				Base,
 			);
 			mainGroup = 633FF88B296ED9B9006EE295;
+			packageReferences = (
+				634F9E8D296F16AD00A6387D /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 633FF895296ED9B9006EE295 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -454,6 +462,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		634F9E8D296F16AD00A6387D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		634F9E8E296F16AD00A6387D /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 634F9E8D296F16AD00A6387D /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 633FF88C296ED9B9006EE295 /* Project object */;
 }
