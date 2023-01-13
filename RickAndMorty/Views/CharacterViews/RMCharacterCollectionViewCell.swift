@@ -15,7 +15,8 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -38,8 +39,16 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .secondarySystemBackground
-        
+        self.setupLayer()
         self.setupCellUI()
+    }
+    
+    private func setupLayer() {
+        contentView.layer.cornerRadius = 8
+        contentView.layer.shadowColor = UIColor.label.cgColor
+        contentView.layer.shadowRadius = 4
+        contentView.layer.shadowOffset = CGSize(width: -4, height: 4)
+        contentView.layer.shadowOpacity = 0.3
     }
     
     private func setupCellUI() {
@@ -52,22 +61,27 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
         }
         
         nameLabel.snp.makeConstraints { make in
-            make.height.equalTo(40)
+            make.height.equalTo(30)
             make.leading.equalTo(self.contentView.snp.leading).offset(5)
-            make.trailing.equalTo(self.contentView.snp.trailing).offset(-5)
-            make.bottom.equalTo(statusLabel.snp.top).offset(-3)
+            make.trailing.equalTo(self.contentView.snp.trailing).offset(-7)
+            make.bottom.equalTo(statusLabel.snp.top)
         }
         
         statusLabel.snp.makeConstraints { make in
-            make.height.equalTo(40)
-            make.leading.equalTo(self.contentView.snp.leading).offset(5)
-            make.trailing.equalTo(self.contentView.snp.trailing).offset(-5)
+            make.height.equalTo(30)
+            make.leading.equalTo(self.contentView.snp.leading).offset(7)
+            make.trailing.equalTo(self.contentView.snp.trailing).offset(-7)
             make.bottom.equalTo(self.contentView.snp.bottom).offset(-3)
         }
     }
     
     required init?(coder: NSCoder) {
         fatalError("Unsupported")
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        setupLayer()
     }
     
     override func prepareForReuse() {

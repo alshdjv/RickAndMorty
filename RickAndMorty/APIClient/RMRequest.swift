@@ -11,7 +11,7 @@ import Foundation
 final class RMRequest {
     /// API Constants
     private struct Constants {
-        static let baseUrl = "https://rickandmortyapi.com/apo"
+        static let baseUrl = "https://rickandmortyapi.com/api"
     }
     
     /// Designed endpoint

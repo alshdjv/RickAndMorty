@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 /// Controller to show and search for Characters
-final class RMCharacterViewController: UIViewController {
+final class RMCharacterViewController: UIViewController, RMCharacterListViewDelegate {
     
     private let characterListView = RMCharacterListView()
 
@@ -22,6 +22,7 @@ final class RMCharacterViewController: UIViewController {
     }
     
     private func setupControllerUI() {
+        characterListView.delegate = self
         self.view.addSubview(characterListView)
         characterListView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
@@ -30,5 +31,14 @@ final class RMCharacterViewController: UIViewController {
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
         }
     }
-   
+    
+    // MARK: - RMCharacterListViewDelegate
+    
+    func rmCharcterListView(_ characterListView: RMCharacterListView, didSelectCharacter character: RMCharacter) {
+        // Open detail controller for that character
+        let viewModel = RMCharacterDetailViewViewModel(character: character)
+        let detailViewController = RMCharacterDetailViewController(viewModel: viewModel)
+        detailViewController.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
 }
