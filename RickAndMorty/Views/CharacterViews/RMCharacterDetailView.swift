@@ -11,7 +11,9 @@ import SnapKit
 /// View for single character info
 final class RMCharacterDetailView: UIView {
     
-    private var collectionView: UICollectionView?
+    public var collectionView: UICollectionView?
+    
+    private var viewModel: RMCharacterDetailViewViewModel
     
     private let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
@@ -21,9 +23,10 @@ final class RMCharacterDetailView: UIView {
     
     // MARK: - Init
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, viewModel: RMCharacterDetailViewViewModel) {
+        self.viewModel = viewModel
         super .init(frame: frame)
-        self.backgroundColor = .systemPurple
+        self.backgroundColor = .systemBackground
         
         let collectionView = createCollectionView()
         self.collectionView = collectionView
@@ -57,16 +60,89 @@ final class RMCharacterDetailView: UIView {
     }
     
     private func createCollectionView() -> UICollectionView {
+        
         let layout = UICollectionViewCompositionalLayout { sectionIndex, _ in
             return self.createSection(for: sectionIndex)
         }
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(UICollectionView.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         return collectionView
     }
     
-    private func createSection(for sectionIndex: Index) -> NSCollectionLayoutSection {
+    private func createSection(for sectionIndex: Int) -> NSCollectionLayoutSection {
         
+        let sectionTypes = viewModel.sections
+        switch sectionTypes[sectionIndex] {
+        case .photo:
+            return createPhotoSectionLayout()
+        case .information:
+            return createInfoSectionLayout()
+        case .episodes:
+            return createEpisodeSectionLayout()
+        }
+    }
+    
+    private func createPhotoSectionLayout() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0))
+        )
+        item.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: 10,
+            trailing: 0
+        )
+        let group = NSCollectionLayoutGroup.vertical(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(150)),
+            subitems: [item]
+        )
+        let section = NSCollectionLayoutSection(group: group)
+        return section
+    }
+    
+    private func createInfoSectionLayout() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0))
+        )
+        item.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: 10,
+            trailing: 0
+        )
+        let group = NSCollectionLayoutGroup.vertical(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(150)),
+            subitems: [item]
+        )
+        let section = NSCollectionLayoutSection(group: group)
+        return section
+    }
+    
+    private func createEpisodeSectionLayout() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0))
+        )
+        item.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: 10,
+            trailing: 0
+        )
+        let group = NSCollectionLayoutGroup.vertical(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(150)),
+            subitems: [item]
+        )
+        let section = NSCollectionLayoutSection(group: group)
+        return section
     }
     
     required init?(coder: NSCoder) {
