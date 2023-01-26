@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		630D95E52982496200F98118 /* RMImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630D95E42982496200F98118 /* RMImageLoader.swift */; };
 		633FF898296ED9B9006EE295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633FF897296ED9B9006EE295 /* AppDelegate.swift */; };
 		633FF89A296ED9B9006EE295 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633FF899296ED9B9006EE295 /* SceneDelegate.swift */; };
 		633FF89C296ED9B9006EE295 /* RMTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633FF89B296ED9B9006EE295 /* RMTabBarController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		630D95E42982496200F98118 /* RMImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMImageLoader.swift; sourceTree = "<group>"; };
 		633FF894296ED9B9006EE295 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		633FF897296ED9B9006EE295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		633FF899296ED9B9006EE295 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		633FF8B0296EDD1A006EE295 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				630D95E42982496200F98118 /* RMImageLoader.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				633FF8C1296EDECB006EE295 /* RMSettingsViewController.swift in Sources */,
 				633FF8C3296EE746006EE295 /* RMService.swift in Sources */,
 				63647372297026C200609B66 /* RMCharacterListViewCellViewModel.swift in Sources */,
+				630D95E52982496200F98118 /* RMImageLoader.swift in Sources */,
 				6358CEBF29711A4100B8F96E /* RMCharacterDetailViewViewModel.swift in Sources */,
 				633FF8B4296EDDF0006EE295 /* RMLocation.swift in Sources */,
 				636473692970162500609B66 /* RMCharacterListViewViewModel.swift in Sources */,
